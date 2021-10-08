@@ -17,7 +17,7 @@ client = mqtt.Client(client_id="py-producer")
 client.on_message=on_message
 client.connect(host="broker.hivemq.com", port=1883)
 
-def worker(input_queue: Queue,uart):
+def worker(input_queue: Queue, uart: Serial):
     while True:
         payload = input_queue.get()
         client.publish(
